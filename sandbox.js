@@ -3,8 +3,9 @@ var Sandbox;
 Sandbox = (function(window) {
     var queue, Sandbox, readyStateChange, loadSandbox;
     queue = [];
-    Sandbox = function Sandbox(src) {
+    Sandbox = function Sandbox(src, name) {
         this.src = src;
+        this.name = name;
         this.window = void null;
         this.readyState = -1;
         queue.push(this);
@@ -20,32 +21,32 @@ Sandbox = (function(window) {
         }
     };
     loadSandbox = function loadSandbox() {
-        var instance, fragment, iframe, src;
+        var instance, fragment, iframe;
         instance = queue[0];
         readyStateChange(instance);
         fragment = document.createDocumentFragment();
         iframe = document.createElement('iframe');
-        src = instance.src;
         iframe.style.display = 'none';
-        iframe.id = iframe.name = ('Sandbox__' + new Date().getTime()) + Math.floor(Math.random() * 1000000000000000);
+        iframe.id = iframe.name = ('Sandbox__' + instance.name + new Date().getTime()) + Math.floor(Math.random() * 1000000000000000);
         iframe.onload = function() {
-            var sandbox, document, script, onload, Window;
-            Window = function Window(window) {
-                if(!this.document) {
-                    return window;
-                }
-            };
+            var sandbox, document, script, onload;
             sandbox = frames[iframe.name] || window.document.getelementById(iframe.id).contentWindow;
-            instance.window = sandbox = new Window(sandbox);
             document = sandbox.document;
             script = document.createElement('script');
-            script.src = src;
+            script.src = instance.src;
             onload = function() {
-                var readyState;
+                var readyState, Window, callback;
                 readyState = this.readyState;
                 if(typeof readyState !== 'string' || (readyState === 'loaded' || readyState === 'complete')) {
-                    if(!navigator.userAgent.toLowerCase() === 'safari') {
-                        fragment.appendChild(iframe);
+                    Window = function Window() {};
+                    Window.prototype = sandbox;
+                    instance.window = new Window(sandbox);
+                    if(instance.name !== void null) {
+                        callback = instance.window[instance.name];
+                    }
+                    fragment.appendChild(iframe);
+                    if(typeof callback === 'function') {
+                        instance.window[instance.name] = callback;
                     }
                     readyStateChange(instance);
                     queue.shift();
