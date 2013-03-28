@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Sandbox.js - Demo</title>
+    </head>
+    <body>
+        <p></p>
+        <script src="../sandbox.js"></script>
+        <script>
+            'use strict';
+            new Sandbox('namedSandboxable.js', 'namedSandboxable');
+            new Sandbox('sandboxable.js');
+        </script>
+    </body>
+</html>
