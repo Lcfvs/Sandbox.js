@@ -5,7 +5,7 @@ Sandbox = (function(window) {
     queue = [];
     Sandbox = function Sandbox(src, name) {
         this.src = src;
-        this.name = name;
+        this.name = name || 'anonymous';
         this.window = void null;
         this.readyState = -1;
         queue.push(this);
