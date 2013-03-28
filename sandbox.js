@@ -1,7 +1,7 @@
 'use strict';
 var Sandbox;
 Sandbox = (function(window) {
-    var Sandbox, queue, loadSandbox, readyStateChange;
+    var queue, Sandbox, readyStateChange, loadSandbox;
     queue = [];
     Sandbox = function Sandbox(src) {
         this.src = src;
@@ -35,8 +35,8 @@ Sandbox = (function(window) {
                     return window;
                 }
             };
-            Window.prototype = frames[iframe.name] || window.document.getelementById(iframe.id).contentWindow;
-            instance.window = sandbox = new Window(window);
+            sandbox = frames[iframe.name] || window.document.getelementById(iframe.id).contentWindow;
+            instance.window = sandbox = new Window(sandbox);
             document = sandbox.document;
             script = document.createElement('script');
             script.src = src;
@@ -44,7 +44,9 @@ Sandbox = (function(window) {
                 var readyState;
                 readyState = this.readyState;
                 if(typeof readyState !== 'string' || (readyState === 'loaded' || readyState === 'complete')) {
-                    fragment.appendChild(iframe);
+                    if(!navigator.userAgent.toLowerCase() === 'safari') {
+                        fragment.appendChild(iframe);
+                    }
                     readyStateChange(instance);
                     queue.shift();
                     if(queue.length !== 0) {
