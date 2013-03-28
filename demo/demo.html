@@ -9,7 +9,12 @@
         <script src="../sandbox.js"></script>
         <script>
             'use strict';
-            new Sandbox('namedSandboxable.js', 'namedSandboxable');
+            var box = new Sandbox('namedSandboxable.js');
+            box.onreadystatechange = function(){
+                if(this.readyState === 4){
+                    this.window.namedSandboxable(window);
+                }
+            };
             new Sandbox('sandboxable.js');
         </script>
     </body>
