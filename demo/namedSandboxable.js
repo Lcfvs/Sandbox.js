@@ -1,9 +1,8 @@
 'use strict';
 var namedSandboxable;
 namedSandboxable = function namedSandboxable(parentWindow) {
-    var doc, button;
-    doc = window.document;
-    button = doc.createElement('button');
+    var button;
+    button = document.createElement('button');
     button.innerHTML = 'Click here';
     button.setAttribute('type', 'button');
     button.onclick = function() {
