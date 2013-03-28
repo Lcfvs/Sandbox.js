@@ -5,9 +5,9 @@ namedSandboxable = function namedSandboxable(parentWindow) {
     doc = window.document;
     button = doc.createElement('button');
     button.innerHTML = 'Click here';
-    button.type = 'button';
-    button.addEventListener('click', function() {
-        parentWindow.alert('This button has been created from a named JavaScript sandbox');
-    }, false);
+    button.setAttribute('type', 'button');
+    button.onclick = function() {
+        parentWindow.alert('This button has been created from an anonymous JavaScript sandbox');
+    };
     parentWindow.document.body.getElementsByTagName('p')[0].appendChild(button);
 };
