@@ -26,6 +26,7 @@ Arguments :
 
 
 The Sandbox properties :
+------------------------
 
 String src : the script url<br />
 String callbackName : the closure name ('anonymous' if not specified)<br />
