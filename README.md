@@ -6,7 +6,7 @@ A JavaScript sandboxing
 
 This project is a Web workers alternative under the LGPL 3.0 license (http://www.gnu.org/licenses/lgpl-3.0.txt).
 
-It allows you to create several different threads (knowing window & window.documentwindow), each with its own execution context.
+It allows you to create several different threads (knowing window & window.document), each with its own execution context.
 
 Each window has its own sandbox and isn't affected by the prototyping defined by scripts that run outside the current sandbox.
 
@@ -22,7 +22,7 @@ Arguments :
 
 [required] String   src                : the script url<br />
 [optional] String   callbackName       : the closure name<br />
-[optional] Function onReadyStateChange : the function to listen the sandbox readyState<br />
+[optional] Function onReadyStateChange : the function listening to the sandbox readyState
 
 
 The readyState :
