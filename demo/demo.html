@@ -9,13 +9,13 @@
         <script src="../sandbox.js"></script>
         <script>
             'use strict';
-            var box = new Sandbox('namedSandboxable.js', 'namedSandboxable');
-            box.onreadystatechange = function(){
+            var anonymousSandbox, namedSandbox;
+            anonymousSandbox = new Sandbox('sandboxable.js');
+            namedSandbox = new Sandbox('namedSandboxable.js', 'namedSandboxable', function(){
                 if(this.readyState === 4){
                     this.window.namedSandboxable(window);
                 }
-            };
-            new Sandbox('sandboxable.js');
+            });
         </script>
     </body>
 </html>
