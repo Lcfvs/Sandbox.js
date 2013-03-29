@@ -14,35 +14,35 @@ Each window has its own sandbox and isn't affected by the prototyping defined by
 Syntax :
 --------
 
-new Sandbox(src, callbackName, onReadyStateChange);
+<strong>new Sandbox(src, callbackName, onReadyStateChange);</strong>
 
 
 Arguments :
 -----------
 
-[required] String src : the script url<br />
-[optional] String callbackName : the closure name<br />
-[optional] Function onReadyStateChange : the function listening to the sandbox readyState
+[required] String <strong>src</strong> : the script url<br />
+[optional] String <strong>callbackName</strong> : the closure name<br />
+[optional] Function <strong>onReadyStateChange</strong> : the function listening to the sandbox readyState
 
 
 The Sandbox properties :
 ------------------------
 
-String src : the script url<br />
-String callbackName : the closure name ('anonymous' if not specified)<br />
-Window window : the sandbox window context
-Function onReadyStateChange : the function listening to the sandbox readyState<br />
-Integer readyState : the sandbox readyState (0 to 4)
+String <strong>src</strong> : the script url<br />
+String <strong>callbackName</strong> : the closure name ('anonymous' if not specified)<br />
+Window <strong>window</strong> : the sandbox window context
+Function <strong>onreadystatechange</strong> : the function listening to the sandbox readyState<br />
+Integer <strong>readyState</strong> : the sandbox readyState (0 to 4)
 
 
 The readyState :
 ----------------
 
-0 : initialisation<br />
-1 : creation of a iframe tag<br />
-2 : the iframe is loaded<br />
-3 : creation of a script tag<br />
-4 : the script is loaded & callable
+<strong>0</strong> : initialisation<br />
+<strong>1</strong> : creation of a iframe tag<br />
+<strong>2</strong> : the iframe is loaded<br />
+<strong>3</strong> : creation of a script tag<br />
+<strong>4</strong> : the script is loaded & callable
 
 
 Compatibility :
