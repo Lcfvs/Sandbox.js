@@ -1,4 +1,4 @@
 Sandbox.js
 ==========
 
-A JavaScript sanboxing
+A JavaScript sandboxing

@@ -46,6 +46,7 @@ Sandbox = (function(window) {
                         callback = instance.window[instance.name];
                     }
                     fragment.appendChild(iframe);
+                    instance.document = document;
                     if(typeof callback === 'function') {
                         instance.window[instance.name] = callback;
                     }
