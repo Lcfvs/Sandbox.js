@@ -20,9 +20,18 @@ new Sandbox(src, callbackName, onReadyStateChange);
 Arguments :
 -----------
 
-[required] String   src                : the script url<br />
-[optional] String   callbackName       : the closure name<br />
+[required] String src : the script url<br />
+[optional] String callbackName : the closure name<br />
 [optional] Function onReadyStateChange : the function listening to the sandbox readyState
+
+
+The Sandbox properties :
+
+String src : the script url<br />
+String callbackName : the closure name ('anonymous' if not specified)<br />
+Window window : the sandbox window context
+Function onReadyStateChange : the function listening to the sandbox readyState<br />
+Integer readyState : the sandbox readyState (0 to 4)
 
 
 The readyState :
