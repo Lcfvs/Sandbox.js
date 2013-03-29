@@ -1,20 +1,21 @@
 'use strict';
 var Sandbox;
 Sandbox = (function(window) {
-    var queue, Sandbox, readyStateChange, loadSandbox;
+    var queue, Sandbox, changeReadyState, loadSandbox;
     queue = [];
-    Sandbox = function Sandbox(src, name) {
+    Sandbox = function Sandbox(src, name, onReadyStateChange) {
         this.src = src;
         this.name = name || 'anonymous';
         this.window = void null;
         this.readyState = -1;
+        this.onreadystatechange = onReadyStateChange;
         queue.push(this);
-        readyStateChange(this);
+        changeReadyState(this);
         if(queue.length === 1 && queue[0].readyState === 0) {
             loadSandbox();
         }
     };
-    readyStateChange = function readyStateChange(instance) {
+    changeReadyState = function changeReadyState(instance) {
         instance.readyState += 1;
         if(typeof instance.onreadystatechange === 'function') {
             instance.onreadystatechange();
@@ -23,7 +24,7 @@ Sandbox = (function(window) {
     loadSandbox = function loadSandbox() {
         var instance, fragment, iframe;
         instance = queue[0];
-        readyStateChange(instance);
+        changeReadyState(instance);
         fragment = document.createDocumentFragment();
         iframe = document.createElement('iframe');
         iframe.style.display = 'none';
@@ -48,7 +49,7 @@ Sandbox = (function(window) {
                     if(typeof callback === 'function') {
                         instance.window[instance.name] = callback;
                     }
-                    readyStateChange(instance);
+                    changeReadyState(instance);
                     queue.shift();
                     if(queue.length !== 0) {
                         loadSandbox();
@@ -57,10 +58,10 @@ Sandbox = (function(window) {
             };
             script[script.readyState ? 'onreadystatechange' : 'onload'] = onload;
             document.body.appendChild(script);
-            readyStateChange(instance);
+            changeReadyState(instance);
         };
         document.body.appendChild(iframe);
-        readyStateChange(instance);
+        changeReadyState(instance);
     };
     return Sandbox;
 })(window);
