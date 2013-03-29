@@ -18,26 +18,26 @@ new Sandbox(src, callbackName, onReadyStateChange);
 Arguments :
 -----------
 
-[required] String   src                : the script url
-[optional] String   callbackName       : the closure name
-[optional] Function onReadyStateChange : the function to listen the sandbox readyState
+[required] String   src                : the script url<br />
+[optional] String   callbackName       : the closure name<br />
+[optional] Function onReadyStateChange : the function to listen the sandbox readyState<br />
 
 
 The readyState :
 ----------------
 
-0 : initialisation
-1 : creation of a iframe tag
-2 : the iframe is loaded
-3 : creation of a script tag
+0 : initialisation<br />
+1 : creation of a iframe tag<br />
+2 : the iframe is loaded<br />
+3 : creation of a script tag<br />
 4 : the script is loaded & callable
 
 
 Compatibility :
 ---------------
 
-Firefox 3.5+
-IE 7+
-Chrome
-Safari
-Opera
+Firefox 3.5+<br />
+IE 7+<br />
+Chrome<br />
+Safari<br />
+Opera<br />
