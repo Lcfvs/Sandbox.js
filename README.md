@@ -20,7 +20,17 @@ Arguments :
 
 [required] String   src                : the script url
 [optional] String   callbackName       : the closure name
-[optional] Function onReadyStateChange : the function to listen the sandbox status
+[optional] Function onReadyStateChange : the function to listen the sandbox readyState
+
+
+The readyState :
+----------------
+
+0 : initialisation
+1 : creation of a iframe tag
+2 : the iframe is loaded
+3 : creation of a script tag
+4 : the script is loaded & callable
 
 
 Compatibility :
