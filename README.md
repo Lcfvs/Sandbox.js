@@ -21,3 +21,13 @@ Arguments :
 [required] String   src                : the script url
 [optional] String   callbackName       : the closure name
 [optional] Function onReadyStateChange : the function to listen the sandbox status
+
+
+Compatibility :
+---------------
+
+Firefox 3.5+
+IE 7+
+Chrome
+Safari
+Opera
