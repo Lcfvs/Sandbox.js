@@ -2,7 +2,7 @@
 (function(parentWindow, document) {
     var button, onclick;
     button = document.createElement('button');
-    button.innerHTML = 'Click here';
+    button.innerHTML = 'Anonymous sandbox button';
     button.setAttribute('type', 'button');
     onclick = function() {
         parentWindow.alert('This button has been created from an anonymous JavaScript sandbox');

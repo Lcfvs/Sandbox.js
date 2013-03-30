@@ -3,7 +3,7 @@ var namedSandboxable;
 namedSandboxable = function namedSandboxable(parentWindow, document) {
     var button, onclick;
     button = document.createElement('button');
-    button.innerHTML = 'Click here';
+    button.innerHTML = 'Named sandbox button';
     button.setAttribute('type', 'button');
     onclick = function() {
         parentWindow.alert('This button has been created from a named JavaScript sandbox');
