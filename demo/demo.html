@@ -13,7 +13,7 @@
             anonymousSandbox = new Sandbox('sandboxable.js');
             namedSandbox = new Sandbox('namedSandboxable.js', 'namedSandboxable', function(){
                 if(this.readyState === 4){
-                    this.window.namedSandboxable(window, this.document);
+                    this.window.namedSandboxable();
                 }
             });
         </script>
