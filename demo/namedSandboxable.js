@@ -17,5 +17,4 @@ var namedSandboxable;
         }
         window.document.body.getElementsByTagName('p')[0].appendChild(button);
     };
-    return namedSandboxable;
 }(parent.window || window));
