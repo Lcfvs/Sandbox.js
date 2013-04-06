@@ -39,7 +39,11 @@ Sandbox = (function () {
                 var readyState, Window, callback;
                 readyState = this.readyState;
                 if (typeof readyState !== 'string' || (readyState === 'loaded' || readyState === 'complete')) {
-                    Window = function Window() {};
+                    Window = function Window(window) {
+                        if(window !== this) {
+                            return window;
+                        }
+                    };
                     Window.prototype = sandbox;
                     instance.window = new Window(sandbox);
                     if (instance.name !== void null) {
