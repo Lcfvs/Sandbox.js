@@ -31,7 +31,7 @@ The Sandbox properties :
 String <strong>src</strong> : the script url<br />
 String <strong>callbackName</strong> : the closure name ('anonymous' if not specified)<br />
 Window <strong>window</strong> : the sandbox window context
-Function <strong>onreadystatechange</strong> : the function listening to the sandbox readyState<br />
+Function <strong>onreadystatechange( callback )</strong> : the function listening to the sandbox readyState<br />
 Integer <strong>readyState</strong> : the sandbox readyState (0 to 4)
 
 
