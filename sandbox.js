@@ -1,5 +1,5 @@
 var Sandbox;
-Sandbox = (function () {
+(function () {
     'use strict';
     var queue, Sandbox, changeReadyState, loadSandbox;
     queue = [];
@@ -68,5 +68,5 @@ Sandbox = (function () {
         document.body.appendChild(iframe);
         changeReadyState(instance);
     };
-    return Sandbox;
-})();
+    self.Sandbox = Sandbox;
+}());
