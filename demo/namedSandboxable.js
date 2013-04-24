@@ -1,6 +1,6 @@
-'use strict';
 var namedSandboxable;
 (function (window) {
+    'use strict';
     self.namedSandboxable = function namedSandboxable() {
         var button, onclick;
         button = self.document.createElement('button');
