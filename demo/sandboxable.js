@@ -1,5 +1,5 @@
-'use strict';
 (function(window) {
+    'use strict';
     var button, onclick;
     button = self.document.createElement('button');
     button.innerHTML = 'Anonymous sandbox button';
