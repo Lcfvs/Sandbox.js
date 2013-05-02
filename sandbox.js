@@ -28,10 +28,9 @@ var Sandbox;
         fragment = document.createDocumentFragment();
         iframe = document.createElement('iframe');
         iframe.style.display = 'none';
-        iframe.id = iframe.name = ('Sandbox__' + instance.name + new Date().getTime()) + Math.floor(Math.random() * 1000000000000000);
         iframe.onload = function () {
             var sandbox, document, script, onload;
-            sandbox = window.frames[iframe.name] || window.document.getelementById(iframe.id).contentWindow;
+            sandbox = this.contentWindow;
             document = sandbox.document;
             script = document.createElement('script');
             script.src = instance.src;
